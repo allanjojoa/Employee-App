@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.allan.android.bad_employee.MainActivity">
+    <!--<TextView-->
+    <!--android:id="@+id/total_text_view"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Total"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/total_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="FL"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/fl_mca_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="MCA"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/fl_b2b_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="B2B"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/fl_total_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Total"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="TX"
+                    android:textSize="20sp" />
+                <!--android:gravity="center"-->
+                android:layout_alignRight="@+id/tx"
+                />
+
+                <TextView
+                    android:id="@+id/tx_mca_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="MCA"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tx_b2b_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="B2B"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tx_id_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Total"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="CA"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ca_mca_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="MCA"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ca_b2b_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="B2B"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ca_total_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Total"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/email_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="refreshClick"
+        android:text="Refresh" />
+
+</RelativeLayout>
