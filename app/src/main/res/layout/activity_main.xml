@@ -16,12 +16,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/total_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total:"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/total_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,14 +83,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tx"
+                    android:id="@+id/tx_textview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="TX"
                     android:textSize="20sp" />
-                <!--android:gravity="center"-->
-                android:layout_alignRight="@+id/tx"
-                />
 
                 <TextView
                     android:id="@+id/tx_mca_textview"
@@ -149,11 +158,18 @@
 
     </LinearLayout>
 
+
     <Button
+        android:id="@+id/refresh_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:onClick="refreshClick"
+        android:onClick="setView"
         android:text="Refresh" />
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/refresh_button"
+        android:onClick="OnLogin"
+        android:text="Fetch" />
 </RelativeLayout>
