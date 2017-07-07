@@ -15,9 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnLogin(View view) {
         String type = "login";
-        String query = "SELECT count(*) from Auditdot_Internship.ca_feb9_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='MCA'";
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type, query);
+        backgroundWorker.execute(type, "internship", "upsC734~");
     }
 
     public void setView(View view){
