@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     static String ca_total,ca_b2b,ca_mca,fl_total,fl_b2b,fl_mca,tx_total,tx_b2b,tx_mca,total_email;
-    static int total_background=4,background_executed=1;
+    static int total_background,background_executed;
     int i;
     //private TextView ca_total_textview,ca_mca_textview,ca_b2b_textview,fl_total_textview,fl_mca_textview,fl_b2b_textview,tx_total_textview,tx_mca_textview,tx_b2b_textview;
     @Override
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnLogin(View view) {
+        total_background=4;
+        background_executed=1;
         String type = "login";
         String query="select count(*) from Auditdot_Internship.ca_feb9_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='MCA'";;
         String query1="select count(*) from Auditdot_Internship.ca_feb9_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='B2B'";
@@ -53,29 +55,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setView(View view){
-        TextView ca_total_textview=(TextView) findViewById(R.id.ca_total_textview);
-        TextView ca_mca_textview=(TextView) findViewById(R.id.ca_mca_textview);
-        TextView ca_b2b_textview=(TextView) findViewById(R.id.ca_b2b_textview);
-        ca_total_textview.setText(ca_total);
-        ca_b2b_textview.setText(ca_b2b);
-        ca_mca_textview.setText(ca_mca);
-        TextView fl_total_textview=(TextView) findViewById(R.id.fl_total_textview);
-        TextView fl_mca_textview=(TextView) findViewById(R.id.fl_mca_textview);
-        TextView fl_b2b_textview=(TextView) findViewById(R.id.fl_b2b_textview);
-        fl_total_textview.setText(fl_total);
-        fl_b2b_textview.setText(fl_b2b);
-        fl_mca_textview.setText(fl_mca);
-        TextView tx_total_textview=(TextView) findViewById(R.id.tx_total_textview);
-        TextView tx_mca_textview=(TextView) findViewById(R.id.tx_mca_textview);
-        TextView tx_b2b_textview=(TextView) findViewById(R.id.tx_b2b_textview);
-        tx_total_textview.setText(tx_total);
-        tx_b2b_textview.setText(tx_b2b);
-        tx_mca_textview.setText(tx_mca);
-        i=Integer.parseInt(ca_total.toString())+Integer.parseInt(tx_total.toString())+Integer.parseInt(fl_total.toString());
-        TextView total_textview=(TextView) findViewById(R.id.total_textview);
-        total_textview.setText(":"+i);
-        TextView email_textview=(TextView) findViewById(R.id.email_textview);
-        email_textview.setText(":"+total_email);
+        if(background_executed==(total_background+1) ){
+            TextView ca_total_textview = (TextView) findViewById(R.id.ca_total_textview);
+            TextView ca_mca_textview = (TextView) findViewById(R.id.ca_mca_textview);
+            TextView ca_b2b_textview = (TextView) findViewById(R.id.ca_b2b_textview);
+            ca_total_textview.setText(ca_total);
+            ca_b2b_textview.setText(ca_b2b);
+            ca_mca_textview.setText(ca_mca);
+            TextView fl_total_textview = (TextView) findViewById(R.id.fl_total_textview);
+            TextView fl_mca_textview = (TextView) findViewById(R.id.fl_mca_textview);
+            TextView fl_b2b_textview = (TextView) findViewById(R.id.fl_b2b_textview);
+            fl_total_textview.setText(fl_total);
+            fl_b2b_textview.setText(fl_b2b);
+            fl_mca_textview.setText(fl_mca);
+            TextView tx_total_textview = (TextView) findViewById(R.id.tx_total_textview);
+            TextView tx_mca_textview = (TextView) findViewById(R.id.tx_mca_textview);
+            TextView tx_b2b_textview = (TextView) findViewById(R.id.tx_b2b_textview);
+            tx_total_textview.setText(tx_total);
+            tx_b2b_textview.setText(tx_b2b);
+            tx_mca_textview.setText(tx_mca);
+            i = Integer.parseInt(ca_total.toString()) + Integer.parseInt(tx_total.toString()) + Integer.parseInt(fl_total.toString());
+            TextView total_textview = (TextView) findViewById(R.id.total_textview);
+            total_textview.setText(":" + i);
+            TextView email_textview = (TextView) findViewById(R.id.email_textview);
+            email_textview.setText(":" + total_email);
+        }
     }
 
 }
