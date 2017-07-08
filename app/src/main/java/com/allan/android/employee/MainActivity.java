@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         query2="select count(donebyUser) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and donebyUser='jibin'";
         BackgroundWorker backgroundWorker4 = new BackgroundWorker(this);
         backgroundWorker4.execute(type,query,query1,query2,"user1");
-        //BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        //backgroundWorker.execute(type, "internship", "upsC734~");
     }
 
     public void setView(View view){
