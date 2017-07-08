@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         TextView total_textview=(TextView) findViewById(R.id.total_textview);
         total_textview.setText(":"+i);
         TextView email_textview=(TextView) findViewById(R.id.email_textview);
-        email_textview.setText(total_email);
+        email_textview.setText(":"+total_email);
     }
 
 }

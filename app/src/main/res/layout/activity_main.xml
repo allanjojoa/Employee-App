@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context="com.allan.android.employee.MainActivity">
     <LinearLayout
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -19,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total "
+                android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:textSize="20sp" />
 
@@ -52,6 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="MCA"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
 
@@ -59,6 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="B2B"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
 
@@ -66,6 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Total"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -82,6 +87,7 @@
                     android:layout_height="match_parent"
                     android:text="FL"
                     android:textAlignment="center"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:fontFamily="serif"
                     android:textSize="22sp" />
@@ -126,6 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="TX"
+                    android:textColor="@android:color/black"
                     android:textAlignment="center"
                     android:textStyle="bold"
                     android:fontFamily="serif"
@@ -170,6 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="CA"
+                    android:textColor="@android:color/black"
                     android:textAlignment="center"
                     android:textStyle="bold"
                     android:fontFamily="serif"
@@ -212,7 +220,8 @@
             android:paddingTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="E-mail: "
+            android:text="E-mail "
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
             android:textSize="20sp" />
@@ -221,26 +230,35 @@
             android:id="@+id/email_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text=":0"
             android:fontFamily="sans-serif"
             android:textSize="20sp" />
         </LinearLayout>
 
 
     </LinearLayout>
-
+    <View android:id="@+id/fakeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"/>
     <Button
         android:id="@+id/refresh_button"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:onClick="OnLogin"
+        android:layout_alignRight="@id/fakeView"
+        android:layout_alignParentLeft="true"
+        android:textColor="@android:color/white"
         android:background="@drawable/ripple_effect"
         android:text="Fetch" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/fakeView"
+        android:layout_alignParentRight="true"
         android:background="@drawable/ripple_effect"
+        android:textColor="@android:color/white"
         android:layout_toRightOf="@id/refresh_button"
         android:layout_alignParentBottom="true"
         android:onClick="setView"
