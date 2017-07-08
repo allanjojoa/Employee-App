@@ -109,6 +109,17 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                             num++;
                         }
                     }
+                    else if(lead_type.equals("user1")){
+                        if (num==1) {
+                            MainActivity.user1_count = line;
+                            num++;
+                        }
+                        else if (num==2) {
+                            MainActivity.user1_name = line;
+                            num++;
+                        }
+
+                    }
 
                 }
                 bufferedReader.close();
