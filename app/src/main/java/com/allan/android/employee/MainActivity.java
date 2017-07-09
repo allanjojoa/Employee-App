@@ -108,44 +108,68 @@ public class MainActivity extends AppCompatActivity {
             TextView email_textview = (TextView) findViewById(R.id.email_textview);
             email_textview.setText(":" + total_email);
 
-            //TextView user1_textview=(TextView) findViewById(R.id.user1_textview);
-            //user1_textview.setText(user1_name+" :  FL:"+user1_fl+" TX:"+user1_tx+" CA:"+user1_ca);
+            TextView user1_textview=(TextView) findViewById(R.id.user1_textview);
+            user1_textview.setText(user1_name);
+            TextView user2_textview=(TextView) findViewById(R.id.user2_textview);
+            user2_textview.setText(user2_name);
+            TextView user3_textview=(TextView) findViewById(R.id.user3_textview);
+            user3_textview.setText(user3_name);
+            TextView user1_ca_textview=(TextView) findViewById(R.id.ca_user1_textview);
+            TextView user2_ca_textview=(TextView) findViewById(R.id.ca_user2_textview);
+            TextView user3_ca_textview=(TextView) findViewById(R.id.ca_user3_textview);
+            user1_ca_textview.setText(user1_ca);
+            user2_ca_textview.setText(user2_ca);
+            user3_ca_textview.setText(user3_ca);
+            TextView user1_fl_textview=(TextView) findViewById(R.id.fl_user1_textview);
+            TextView user2_fl_textview=(TextView) findViewById(R.id.fl_user2_textview);
+            TextView user3_fl_textview=(TextView) findViewById(R.id.fl_user3_textview);
+            user1_fl_textview.setText(user1_fl);
+            user2_fl_textview.setText(user2_fl);
+            user3_fl_textview.setText(user3_fl);
+            TextView user1_tx_textview=(TextView) findViewById(R.id.tx_user1_textview);
+            TextView user2_tx_textview=(TextView) findViewById(R.id.tx_user2_textview);
+            TextView user3_tx_textview=(TextView) findViewById(R.id.tx_user3_textview);
+            user1_tx_textview.setText(user1_tx);
+            user2_tx_textview.setText(user2_tx);
+            user3_tx_textview.setText(user3_tx);
 
 
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.user_linearlayout);
 
-            // Add textview 1
-            TextView textView1 = new TextView(this);
-            textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-                    LayoutParams.WRAP_CONTENT));
-            textView1.setTextSize(20);
-            textView1.setAllCaps(true);
-            textView1.setText(user1_name+" :  FL:"+user1_fl+" TX:"+user1_tx+" CA:"+user1_ca);
-            //textView1.setBackgroundColor(0xff66ff66); // hex color 0xAARRGGBB
-            //textView1.setPadding(20, 20, 20, 20);// in pixels (left, top, right, bottom)
-            linearLayout.addView(textView1);
+//            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.user_linearlayout);
 
-            // Add textview 1
-            TextView textView2 = new TextView(this);
-            textView2.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-                    LayoutParams.WRAP_CONTENT));
-            textView2.setTextSize(20);
-            textView2.setAllCaps(true);
-            textView2.setText(user2_name+" :  FL:"+user2_fl+" TX:"+user2_tx+" CA:"+user2_ca);
-            //textView1.setBackgroundColor(0xff66ff66); // hex color 0xAARRGGBB
-            //textView1.setPadding(20, 20, 20, 20);// in pixels (left, top, right, bottom)
-            linearLayout.addView(textView2);
 
-            // Add textview 1
-            TextView textView3 = new TextView(this);
-            textView3.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-                    LayoutParams.WRAP_CONTENT));
-            textView3.setTextSize(20);
-            textView3.setAllCaps(true);
-            textView3.setText(user3_name+" :  FL:"+user3_fl+" TX:"+user3_tx+" CA:"+user3_ca);
-            //textView1.setBackgroundColor(0xff66ff66); // hex color 0xAARRGGBB
-            //textView1.setPadding(20, 20, 20, 20);// in pixels (left, top, right, bottom)
-            linearLayout.addView(textView3);
+//            // Add textview 1
+//            TextView textView1 = new TextView(this);
+//            textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+//                    LayoutParams.WRAP_CONTENT));
+//            textView1.setTextSize(20);
+//            textView1.setAllCaps(true);
+//            textView1.setText(user1_name+" :  FL:"+user1_fl+" TX:"+user1_tx+" CA:"+user1_ca);
+//            //textView1.setBackgroundColor(0xff66ff66); // hex color 0xAARRGGBB
+//            //textView1.setPadding(20, 20, 20, 20);// in pixels (left, top, right, bottom)
+//            linearLayout.addView(textView1);
+//
+//            // Add textview 1
+//            TextView textView2 = new TextView(this);
+//            textView2.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+//                    LayoutParams.WRAP_CONTENT));
+//            textView2.setTextSize(20);
+//            textView2.setAllCaps(true);
+//            textView2.setText(user2_name+" :  FL:"+user2_fl+" TX:"+user2_tx+" CA:"+user2_ca);
+//            //textView1.setBackgroundColor(0xff66ff66); // hex color 0xAARRGGBB
+//            //textView1.setPadding(20, 20, 20, 20);// in pixels (left, top, right, bottom)
+//            linearLayout.addView(textView2);
+//
+//            // Add textview 1
+//            TextView textView3 = new TextView(this);
+//            textView3.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+//                    LayoutParams.WRAP_CONTENT));
+//            textView3.setTextSize(20);
+//            textView3.setAllCaps(true);
+//            textView3.setText(user3_name+" :  FL:"+user3_fl+" TX:"+user3_tx+" CA:"+user3_ca);
+//            //textView1.setBackgroundColor(0xff66ff66); // hex color 0xAARRGGBB
+//            //textView1.setPadding(20, 20, 20, 20);// in pixels (left, top, right, bottom)
+//            linearLayout.addView(textView3);
 
         }
     }
