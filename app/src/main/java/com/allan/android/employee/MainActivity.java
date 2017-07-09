@@ -1,5 +1,7 @@
 package com.allan.android.employee;
 
+import android.content.Context;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,18 +9,42 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
     static String ca_total,ca_b2b,ca_mca,fl_total,fl_b2b,fl_mca,tx_total,tx_b2b,tx_mca,total_email;
     static String user1_name,user1_ca,user1_fl,user1_tx;
     static String user2_name,user2_ca,user2_fl,user2_tx;
     static String user3_name,user3_ca,user3_fl,user3_tx;
     static int total_background,background_executed;
+    Context context;
+    int user1_total,user2_total,user3_total;
     int i;
     //private TextView ca_total_textview,ca_mca_textview,ca_b2b_textview,fl_total_textview,fl_mca_textview,fl_b2b_textview,tx_total_textview,tx_mca_textview,tx_b2b_textview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context=MainActivity.this;
+        callAsynchronousTask();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        }, 10000);
 
 
 
@@ -80,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         query2="select count(donebyUser) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and donebyUser='jibin'";
         BackgroundWorker backgroundWorker6 = new BackgroundWorker(this);
         backgroundWorker6.execute(type,query,query1,query2,user_num);
+
     }
 
     public void setView(View view){
@@ -172,6 +199,134 @@ public class MainActivity extends AppCompatActivity {
 //            linearLayout.addView(textView3);
 
         }
+
+
+    }
+
+
+    public void callAsynchronousTask() {
+        final Handler handler = new Handler();
+        Timer timer = new Timer();
+        TimerTask doAsynchronousTask = new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        try {
+                            total_background=7;
+                            background_executed=1;
+                            String type = "login";
+                            String query="select count(*) from Auditdot_Internship.ca_feb9_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='MCA'";;
+                            String query1="select count(*) from Auditdot_Internship.ca_feb9_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='B2B'";
+                            String query2="select count(*) from Auditdot_Internship.ca_feb9_2016 where doc_contact=7 and doneDate='2016-11-14' ";
+                            BackgroundWorker backgroundWorker = new BackgroundWorker(context);
+                            backgroundWorker.execute(type,query,query1,query2, "ca");
+                            query="select count(*) from Auditdot_Internship.fl_feb14_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='MCA'";;
+                            query1="select count(*) from Auditdot_Internship.fl_feb14_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='B2B'";
+                            query2="select count(*) from Auditdot_Internship.fl_feb14_2016 where doc_contact=7 and doneDate='2016-11-14' ";
+                            BackgroundWorker backgroundWorker1 = new BackgroundWorker(context);
+                            backgroundWorker1.execute(type,query,query1,query2, "fl");
+                            query="select count(*) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='MCA'";;
+                            query1="select count(*) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and doneDate='2016-11-14' and leadtype='B2B'";
+                            query2="select count(*) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and doneDate='2016-11-14' ";
+                            BackgroundWorker backgroundWorker2 = new BackgroundWorker(context);
+                            backgroundWorker2.execute(type,query,query1,query2, "tx");
+                            query="select count(debtor_email) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7  and doneDate='2016-11-14' and debtor_email and debtor_email IS NOT NULL or debtor_email <>''";
+                            query1="select count(debtor_email) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and doneDate='2016-11-14' and debtor_email and debtor_email IS NOT NULL or debtor_email <>''";
+                            query2="select count(debtor_email) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and doneDate='2016-11-14' and debtor_email and debtor_email IS NOT NULL or debtor_email <>''";
+                            BackgroundWorker backgroundWorker3 = new BackgroundWorker(context);
+                            backgroundWorker3.execute(type,query,query1,query2, "email");
+
+                            String user="jibin",user_num="user1";
+                            query="select distinct donebyUser from Auditdot_Internship.ca_feb9_2016 where doc_contact=7 and donebyUser='"+user+"'";
+                            query1="(select count(donebyUser),donebyUser from Auditdot_Internship.ca_feb9_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"') union (select count(donebyUser),donebyUser from Auditdot_Internship.fl_feb14_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"') union (select count(donebyUser),donebyUser from Auditdot_Internship.tx_jan26_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"')";
+                            query2="select count(donebyUser) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and donebyUser='jibin'";
+                            BackgroundWorker backgroundWorker4 = new BackgroundWorker(context);
+                            backgroundWorker4.execute(type,query,query1,query2,user_num);
+
+                            user="joe";
+                            user_num="user2";
+                            query="select distinct donebyUser from Auditdot_Internship.fl_feb14_2016 where doc_contact=7 and donebyUser='"+user+"'";
+                            query1="(select count(donebyUser) from Auditdot_Internship.ca_feb9_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"') union (select count(donebyUser) from Auditdot_Internship.fl_feb14_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"') union (select count(donebyUser) from Auditdot_Internship.tx_jan26_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"')";
+                            query2="select count(donebyUser) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and donebyUser='jibin'";
+                            BackgroundWorker backgroundWorker5 = new BackgroundWorker(context);
+                            backgroundWorker5.execute(type,query,query1,query2,user_num);
+
+                            user="soji";
+                            user_num="user3";
+                            query="select distinct donebyUser from Auditdot_Internship.fl_feb14_2016 where doc_contact=7 and donebyUser='"+user+"'";
+                            query1="(select count(donebyUser) from Auditdot_Internship.ca_feb9_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"') union (select count(donebyUser) from Auditdot_Internship.fl_feb14_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"') union (select count(donebyUser) from Auditdot_Internship.tx_jan26_2016 where (doc_contact=7 or doc_contact=3) and donebyUser='"+user+"')";
+                            query2="select count(donebyUser) from Auditdot_Internship.tx_jan26_2016 where doc_contact=7 and donebyUser='jibin'";
+                            BackgroundWorker backgroundWorker6 = new BackgroundWorker(context);
+                            backgroundWorker6.execute(type,query,query1,query2,user_num);
+
+                            //if(background_executed >=(total_background+1) ) {
+                                TextView ca_total_textview = (TextView) findViewById(R.id.ca_total_textview);
+                                TextView ca_mca_textview = (TextView) findViewById(R.id.ca_mca_textview);
+                                TextView ca_b2b_textview = (TextView) findViewById(R.id.ca_b2b_textview);
+                                ca_total_textview.setText(ca_total);
+                                ca_b2b_textview.setText(ca_b2b);
+                                ca_mca_textview.setText(ca_mca);
+                                TextView fl_total_textview = (TextView) findViewById(R.id.fl_total_textview);
+                                TextView fl_mca_textview = (TextView) findViewById(R.id.fl_mca_textview);
+                                TextView fl_b2b_textview = (TextView) findViewById(R.id.fl_b2b_textview);
+                                fl_total_textview.setText(fl_total);
+                                fl_b2b_textview.setText(fl_b2b);
+                                fl_mca_textview.setText(fl_mca);
+                                TextView tx_total_textview = (TextView) findViewById(R.id.tx_total_textview);
+                                TextView tx_mca_textview = (TextView) findViewById(R.id.tx_mca_textview);
+                                TextView tx_b2b_textview = (TextView) findViewById(R.id.tx_b2b_textview);
+                                tx_total_textview.setText(tx_total);
+                                tx_b2b_textview.setText(tx_b2b);
+                                tx_mca_textview.setText(tx_mca);
+                                i = Integer.parseInt(ca_total.toString()) + Integer.parseInt(tx_total.toString()) + Integer.parseInt(fl_total.toString());
+                                TextView total_textview = (TextView) findViewById(R.id.total_textview);
+                                total_textview.setText(":" + i);
+                                TextView email_textview = (TextView) findViewById(R.id.email_textview);
+                                email_textview.setText(":" + total_email);
+
+                                TextView user1_textview = (TextView) findViewById(R.id.user1_textview);
+                                TextView user1_total_textview = (TextView) findViewById(R.id.user1_total_textview);
+                            TextView user2_total_textview = (TextView) findViewById(R.id.user2_total_textview);
+                            TextView user3_total_textview = (TextView) findViewById(R.id.user3_total_textview);
+                                user1_total=Integer.parseInt(user1_ca.toString()) + Integer.parseInt(user1_tx.toString()) + Integer.parseInt(user1_fl.toString());
+                                user1_textview.setText(user1_name);
+                                user1_total_textview.setText(" :"+user1_total);
+                                TextView user2_textview = (TextView) findViewById(R.id.user2_textview);
+                                user2_total=Integer.parseInt(user2_ca.toString()) + Integer.parseInt(user2_tx.toString()) + Integer.parseInt(user2_fl.toString());
+                                user2_textview.setText(user2_name);
+                            user2_total_textview.setText(" :"+user2_total);
+                                user3_total=Integer.parseInt(user3_ca.toString()) + Integer.parseInt(user3_tx.toString()) + Integer.parseInt(user3_fl.toString());
+                                TextView user3_textview = (TextView) findViewById(R.id.user3_textview);
+                                user3_textview.setText(user3_name);
+                            user3_total_textview.setText(" :"+user3_total);
+                                TextView user1_ca_textview = (TextView) findViewById(R.id.ca_user1_textview);
+                                TextView user2_ca_textview = (TextView) findViewById(R.id.ca_user2_textview);
+                                TextView user3_ca_textview = (TextView) findViewById(R.id.ca_user3_textview);
+                                user1_ca_textview.setText(user1_ca);
+                                user2_ca_textview.setText(user2_ca);
+                                user3_ca_textview.setText(user3_ca);
+                                TextView user1_fl_textview = (TextView) findViewById(R.id.fl_user1_textview);
+                                TextView user2_fl_textview = (TextView) findViewById(R.id.fl_user2_textview);
+                                TextView user3_fl_textview = (TextView) findViewById(R.id.fl_user3_textview);
+                                user1_fl_textview.setText(user1_fl);
+                                user2_fl_textview.setText(user2_fl);
+                                user3_fl_textview.setText(user3_fl);
+                                TextView user1_tx_textview = (TextView) findViewById(R.id.tx_user1_textview);
+                                TextView user2_tx_textview = (TextView) findViewById(R.id.tx_user2_textview);
+                                TextView user3_tx_textview = (TextView) findViewById(R.id.tx_user3_textview);
+                                user1_tx_textview.setText(user1_tx);
+                                user2_tx_textview.setText(user2_tx);
+                                user3_tx_textview.setText(user3_tx);
+                            //}
+                        } catch (Exception e) {
+                            // TODO Auto-generated catch block
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(doAsynchronousTask, 0, 5000); //execute in every 5000 ms
     }
 
 }

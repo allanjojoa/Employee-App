@@ -192,11 +192,11 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     @Override
     protected void onPostExecute(String result) {
-        MainActivity.background_executed++;
-        if(MainActivity.background_executed==MainActivity.total_background){
-            alertDialog.setMessage("Done");
-            alertDialog.show();
-        }
+//        MainActivity.background_executed++;
+//        if(MainActivity.background_executed==MainActivity.total_background){
+//            alertDialog.setMessage("Done");
+//            alertDialog.show();
+//        }
         //MainActivity.total_result=result;
     }
 
@@ -204,5 +204,6 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
     }
+
 
 }
