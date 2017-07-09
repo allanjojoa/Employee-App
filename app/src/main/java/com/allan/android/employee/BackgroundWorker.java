@@ -110,11 +110,57 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                     }
                     else if(lead_type.equals("user1")){
                         if (num==1) {
-                            MainActivity.user1_count = line;
+                            MainActivity.user1_name = line;
                             num++;
                         }
                         else if (num==2) {
-                            MainActivity.user1_name = line;
+                            MainActivity.user1_ca = line;
+                            num++;
+                        }
+                        else if (num==3) {
+                            MainActivity.user1_fl = line;
+                            num++;
+                        }
+                        else if (num==4) {
+                            MainActivity.user1_tx = line;
+                            num++;
+                        }
+
+                    }
+                    else if(lead_type.equals("user2")){
+                        if (num==1) {
+                            MainActivity.user2_name = line;
+                            num++;
+                        }
+                        else if (num==2) {
+                            MainActivity.user2_ca = line;
+                            num++;
+                        }
+                        else if (num==3) {
+                            MainActivity.user2_fl = line;
+                            num++;
+                        }
+                        else if (num==4) {
+                            MainActivity.user2_tx = line;
+                            num++;
+                        }
+
+                    }
+                    else if(lead_type.equals("user3")){
+                        if (num==1) {
+                            MainActivity.user3_name = line;
+                            num++;
+                        }
+                        else if (num==2) {
+                            MainActivity.user3_ca = line;
+                            num++;
+                        }
+                        else if (num==3) {
+                            MainActivity.user3_fl = line;
+                            num++;
+                        }
+                        else if (num==4) {
+                            MainActivity.user3_tx = line;
                             num++;
                         }
 
