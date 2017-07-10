@@ -218,9 +218,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -229,39 +229,35 @@
                 android:orientation="vertical">
 
 
-
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/user1_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="user1"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
                     android:textAlignment="viewEnd"
                     android:textAllCaps="true"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/user2_textview"
-                    android:text="user2"
-                    android:textColor="@android:color/black"
-                    android:textAlignment="viewEnd"
-                    android:textSize="20sp"
-                    android:textAllCaps="true"
-                    />
-
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:text="user2"
+                    android:textAlignment="viewEnd"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <TextView
                     android:id="@+id/user3_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="user3"
                     android:textAlignment="viewEnd"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
                     android:textAllCaps="true"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -271,30 +267,26 @@
                 android:orientation="vertical">
 
 
-
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/user1_total_textview"
-                    android:text="0"
-                    android:textSize="20sp"
-                    />
-
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+                <TextView
                     android:id="@+id/user2_total_textview"
-                    android:text="0"
-                    android:textSize="20sp"
-                    />
-
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/user3_total_textview"
                     android:text="0"
-                    android:textSize="20sp"
-                    />
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/user3_total_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -434,32 +426,32 @@
     </LinearLayout>
 
     <!--<View-->
-        <!--android:id="@+id/fakeView"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_centerInParent="true" />-->
+    <!--android:id="@+id/fakeView"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_centerInParent="true" />-->
 
     <!--<Button-->
-        <!--android:id="@+id/refresh_button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignRight="@id/fakeView"-->
-        <!--android:background="@drawable/ripple_effect"-->
-        <!--android:onClick="OnLogin"-->
-        <!--android:text="Fetch"-->
-        <!--android:textColor="@android:color/white" />-->
+    <!--android:id="@+id/refresh_button"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignRight="@id/fakeView"-->
+    <!--android:background="@drawable/ripple_effect"-->
+    <!--android:onClick="OnLogin"-->
+    <!--android:text="Fetch"-->
+    <!--android:textColor="@android:color/white" />-->
 
     <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignLeft="@id/fakeView"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_toRightOf="@id/refresh_button"-->
-        <!--android:background="@drawable/ripple_effect"-->
-        <!--android:onClick="setView"-->
-        <!--android:text="Refresh"-->
-        <!--android:textColor="@android:color/white" />-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignLeft="@id/fakeView"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_toRightOf="@id/refresh_button"-->
+    <!--android:background="@drawable/ripple_effect"-->
+    <!--android:onClick="setView"-->
+    <!--android:text="Refresh"-->
+    <!--android:textColor="@android:color/white" />-->
 </RelativeLayout>
